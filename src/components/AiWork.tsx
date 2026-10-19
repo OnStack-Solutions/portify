@@ -5,7 +5,7 @@ import { ArrowRight } from './icons';
 const POINTS = [
   {
     title: 'Answers grounded in the data',
-    body: 'On AskBase AI, a semantic layer describes the client’s business and vector retrieval supplies the context the model needs before it writes any SQL.',
+    body: "On AskBase AI, a semantic layer describes the client's business and vector retrieval supplies the context the model needs before it writes any SQL.",
     project: { slug: 'askbase-ai', name: 'AskBase AI' },
   },
   {

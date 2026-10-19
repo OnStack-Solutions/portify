@@ -12,7 +12,7 @@ export function Experience() {
       <div className="xp">
         <div className="xp__company">
           <h3>{experience.company}</h3>
-          <p className="xp__meta">{experience.location} · {formatMonth(experience.start)} – present</p>
+          <p className="xp__meta">{experience.location} · {formatMonth(experience.start)} - present</p>
           <p className="xp__note">{experience.companyNote}</p>
         </div>
 
@@ -23,7 +23,7 @@ export function Experience() {
                 {i === 0 && <span className="tl-item__tag">Current role</span>}
                 <span className="tl-item__title">{r.title}</span>
                 <span className="tl-item__date">
-                  {formatMonth(r.start)} – {r.end ? formatMonth(r.end) : 'Present'}
+                  {formatMonth(r.start)} - {r.end ? formatMonth(r.end) : 'Present'}
                 </span>
               </li>
             ))}

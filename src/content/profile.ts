@@ -23,7 +23,7 @@ export const person = {
   summary:
     'Full Stack Developer with 5+ years of experience building production web applications with React, Next.js, TypeScript and Node.js (Express.js and NestJS). Specialized in AI integration, including natural-language-to-SQL, retrieval-augmented generation and AI assistants, and in integrations with hospitality POS and PMS systems and Xero accounting.',
   intro: [
-    'I’m a full stack developer with 5+ years of experience designing and shipping production web applications. I work across the whole stack: React and Next.js on the frontend, Node.js services built with Express.js and NestJS behind them, and MySQL, PostgreSQL and MongoDB underneath.',
+    "I'm a full stack developer with 5+ years of experience designing and shipping production web applications. I work across the whole stack: React and Next.js on the frontend, Node.js services built with Express.js and NestJS behind them, and MySQL, PostgreSQL and MongoDB underneath.",
     'My focus is AI integration: natural-language-to-SQL with retrieval-augmented generation, AI assistants, and LLM features on OpenAI, Anthropic and self-hosted models. I also build integrations with hospitality POS and PMS systems, including Oracle OHIP, Oracle Gen1 and Gen2, Infrasys, Omega and Foodics, and with Xero accounting.',
   ],
   summaryShort:
@@ -152,7 +152,7 @@ export const projects: Project[] = [
     contributions: [
       'Developed the full frontend in Next.js 15 (Turbopack) with React 19 and TypeScript, using Tailwind CSS for styling, Recharts for charts, Framer Motion for animation, and Three.js / React Three Fiber for a 3D chart view.',
       'Built the Python FastAPI backend and the natural-language-to-SQL pipeline using the askbase package, SQLAlchemy (async), sqlglot for SQL parsing and validation, and slowapi for rate limiting.',
-      'Integrated locally hosted open-source models through Ollama — qwen2.5-coder for SQL generation and qwen2.5 instruct for chat — with multi-tenant isolation, read-only query execution and caching.',
+      'Integrated locally hosted open-source models through Ollama (qwen2.5-coder for SQL generation and qwen2.5 instruct for chat), with multi-tenant isolation, read-only query execution and caching.',
       'Wired up connections to MySQL/MariaDB, PostgreSQL, MongoDB (Motor) and Google Cloud Firestore, and packaged the whole system with Docker Compose for easy deployment.',
     ],
     tech: [
@@ -169,7 +169,7 @@ export const projects: Project[] = [
       layers: [
         { title: 'UI', items: ['Next.js 15', 'React 19', 'Tailwind CSS', 'Recharts', 'Three.js'] },
         { title: 'API', items: ['FastAPI', 'Uvicorn', 'slowapi'], mine: true },
-        { title: 'NL→SQL engine', items: ['askbase', 'sqlglot', 'SQLAlchemy', 'Ollama'], mine: true },
+        { title: 'NL-to-SQL engine', items: ['askbase', 'sqlglot', 'SQLAlchemy', 'Ollama'], mine: true },
         {
           title: 'Databases',
           groups: [
@@ -243,7 +243,7 @@ export const projects: Project[] = [
       'Developed the leads, listings, deals, communities, properties and customer-calling modules.',
       'Integrated AI services into the main products to help agents reach more customers.',
       'Used Next.js server-side rendering and static generation so listing pages load quickly and can be indexed by search engines.',
-      'Worked with the platform’s Algolia search, Intercom, Amplitude and Google Maps integrations.',
+      "Worked with the platform's Algolia search, Intercom, Amplitude and Google Maps integrations.",
     ],
     tech: ['Next.js', 'NestJS', 'React', 'Ant Design', 'Bootstrap', 'AWS', 'Anthropic API', 'FastAPI', 'Algolia', 'Intercom', 'Amplitude', 'Google Maps API', 'Swagger'],
     diagram: {
@@ -275,7 +275,7 @@ export const projects: Project[] = [
     ],
     contributions: [
       'Built and maintained the NestJS services that integrate the platform with venue POS and PMS systems: Oracle OHIP, Oracle Gen1 and Gen2, Infrasys, Omega and Foodics.',
-      'Added new features to these integrations and kept orders, menus and billing in sync between the platform and each venue’s systems.',
+      "Added new features to these integrations and kept orders, menus and billing in sync between the platform and each venue's systems.",
       'Integrated the OpenAI and Anthropic APIs to add AI features that support sales.',
     ],
     tech: ['NestJS', 'MySQL', 'MongoDB', 'Azure Service Bus', 'Firebase', 'Oracle OHIP', 'Oracle Gen1', 'Oracle Gen2', 'Infrasys', 'Omega', 'Foodics', 'OpenAI API', 'Anthropic API'],

@@ -64,7 +64,7 @@ export async function renderProjectOg({ name, tagline, industry }: { name: strin
   return new ImageResponse(
     (
       <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', background: INK, color: TEXT, fontFamily: 'Geist', padding: 64 }}>
-        <Kicker>{`Case study — ${industry}`}</Kicker>
+        <Kicker>{`Case study: ${industry}`}</Kicker>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div style={{ display: 'flex', fontSize: 104, fontWeight: 600, lineHeight: 1, letterSpacing: -5 }}>{name}</div>
           <div style={{ display: 'flex', marginTop: 22, fontSize: 38, lineHeight: 1.25, color: TEXT_2, maxWidth: 980, letterSpacing: -0.8 }}>{tagline}</div>

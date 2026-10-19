@@ -107,8 +107,8 @@ const TECHS: Tech[] = [
   { name: 'Git', aliases: ['git', 'github', 'gitlab'] },
   { name: 'Jira', aliases: ['jira'] },
   { name: 'Postman', aliases: ['postman'] },
-  { name: 'Java', aliases: ['java'], note: 'Java appears in the Abu Dhabi Global Management backend; Salman’s work there centered on the frontend services and integrations.' },
-  { name: '.NET Core', aliases: ['.net', 'dotnet', 'asp.net', '.net core', 'net core'], note: '.NET Core appears in the Abu Dhabi Global Management backend; Salman’s work there centered on the frontend services and integrations.' },
+  { name: 'Java', aliases: ['java'], note: "Java appears in the Abu Dhabi Global Management backend; Salman's work there centered on the frontend services and integrations." },
+  { name: '.NET Core', aliases: ['.net', 'dotnet', 'asp.net', '.net core', 'net core'], note: ".NET Core appears in the Abu Dhabi Global Management backend; Salman's work there centered on the frontend services and integrations." },
 ];
 
 // Commonly asked technologies that are NOT in Salman's materials. Recognising them lets
@@ -280,7 +280,7 @@ function yearsAnswer(): ChatReply {
 
 function skillsAnswer(): ChatReply {
   return reply(
-    `Here is Salman’s stack, grouped by area:\n${list(skills.map((g) => `**${g.name}:** ${g.items.join(', ')}`))}`,
+    `Here is Salman's stack, grouped by area:\n${list(skills.map((g) => `**${g.name}:** ${g.items.join(', ')}`))}`,
     'skills',
     { suggestions: ['Does he know Next.js?', 'What AI work has he done?', 'Is he frontend or backend?'] },
   );
@@ -289,7 +289,7 @@ function skillsAnswer(): ChatReply {
 function aiAnswer(): ChatReply {
   const ai = projects.filter((p) => p.ai);
   return reply(
-    `AI integration is Salman’s specialty. He builds LLM features into real products rather than demos:\n${list([
+    `AI integration is Salman's specialty. He builds LLM features into real products rather than demos:\n${list([
       '**Natural-language-to-SQL with RAG.** AskBase AI turns plain-English questions into validated, read-only SQL, using a semantic layer and vector retrieval for business context.',
       '**Several model providers.** OpenAI and Anthropic APIs, plus self-hosted open-source models through Ollama.',
       '**An embeddable assistant.** Grace AI gives real-estate agents in Dubai instant answers about listings, as a standalone app and as a script embedded in other websites.',
@@ -304,7 +304,7 @@ function projectsAnswer(): ChatReply {
   const featured = featuredProjects.map((p) => `**${p.name}**: ${p.tagline} (${p.role})`);
   const others = projects.filter((p) => !p.featured).map((p) => p.name);
   return reply(
-    `Salman’s featured work:\n${list(featured)}\n\nAlso: ${others.join(', ')}.\n\nAsk me about any of them for details.`,
+    `Salman's featured work:\n${list(featured)}\n\nAlso: ${others.join(', ')}.\n\nAsk me about any of them for details.`,
     'projects',
     { suggestions: featuredProjects.slice(0, 3).map((p) => `Tell me about ${p.name}`) },
   );
@@ -330,7 +330,7 @@ function projectAnswer(p: Project, facet?: string): ChatReply {
   }
   if (facet === 'link') {
     return reply(
-      `**${p.name}** is a client product, so I don’t share links to it here. The case study covers what it does, the architecture and Salman’s role.`,
+      `**${p.name}** is a client product, so I don't share links to it here. The case study covers what it does, the architecture and Salman's role.`,
       `project:${p.slug}:link`,
       { context, links, suggestions: more.slice(0, 2) },
     );
@@ -356,7 +356,7 @@ function techAnswer(known: Tech[], unlisted: string[]): ChatReply {
     }
   }
   for (const u of unlisted) {
-    parts.push(`**${u.replace(/\b\w/g, (c) => c.toUpperCase())}**: not mentioned in Salman’s portfolio, so I can’t confirm it. You can ask him directly.`);
+    parts.push(`**${u.replace(/\b\w/g, (c) => c.toUpperCase())}**: not mentioned in Salman's portfolio, so I can't confirm it. You can ask him directly.`);
   }
   const anyUnlisted = unlisted.length > 0;
   return reply(parts.join('\n\n'), `tech:${[...known.map((t) => t.name), ...unlisted].join(',')}`, {
@@ -409,7 +409,7 @@ function educationAnswer(): ChatReply {
 
 function notSpecified(topic: string, matched: string, links: ChatLink[] = CONTACT_LINKS): ChatReply {
   return reply(
-    `${topic} isn’t specified in Salman’s portfolio, so I don’t want to guess. You can ask him directly on WhatsApp or by email.`,
+    `${topic} isn't specified in Salman's portfolio, so I don't want to guess. You can ask him directly on WhatsApp or by email.`,
     matched,
     { links, suggestions: ['What are his skills?', 'Show me his projects'] },
   );
@@ -429,7 +429,7 @@ function contactAnswer(): ChatReply {
 
 function whatsappAnswer(): ChatReply {
   return reply(
-    `Salman’s WhatsApp number is **${person.phoneDisplay}**. The button below opens a chat with a short greeting already filled in.`,
+    `Salman's WhatsApp number is **${person.phoneDisplay}**. The button below opens a chat with a short greeting already filled in.`,
     'whatsapp',
     { links: [CONTACT_LINKS[0]], suggestions: ['What services does he offer?'] },
   );
@@ -437,7 +437,7 @@ function whatsappAnswer(): ChatReply {
 
 function availabilityAnswer(): ChatReply {
   return reply(
-    `Availability, start dates and engagement details aren’t listed in Salman’s portfolio. The quickest way to ask is WhatsApp or email.`,
+    `Availability, start dates and engagement details aren't listed in Salman's portfolio. The quickest way to ask is WhatsApp or email.`,
     'availability',
     { links: CONTACT_LINKS, suggestions: ['What services does he offer?', 'Where is he based?'] },
   );
@@ -450,7 +450,7 @@ function locationAnswer(): ChatReply {
 }
 
 function resumeAnswer(): ChatReply {
-  return reply(`You can download Salman’s latest resume as a PDF using the button below.`, 'resume', {
+  return reply(`You can download Salman's latest resume as a PDF using the button below.`, 'resume', {
     links: [RESUME_LINK],
     suggestions: ['Summarize his experience', 'What are his skills?'],
   });
@@ -485,7 +485,7 @@ function frontendBackendAnswer(): ChatReply {
 
 function leadershipAnswer(): ChatReply {
   return reply(
-    `His portfolio doesn’t list formal team-lead or people-management roles. It does show ownership: he was the **sole developer** on Grace AI, and he **led the rollout** of the Grace AI script across multiple Better Homes websites. For anything beyond that, ask him directly.`,
+    `His portfolio doesn't list formal team-lead or people-management roles. It does show ownership: he was the **sole developer** on Grace AI, and he **led the rollout** of the Grace AI script across multiple Better Homes websites. For anything beyond that, ask him directly.`,
     'leadership',
     { links: CONTACT_LINKS, suggestions: ['Tell me about Grace AI', 'What is his experience?'] },
   );
@@ -515,7 +515,7 @@ function hireAnswer(): ChatReply {
 
 function botAnswer(): ChatReply {
   return reply(
-    `I’m Salman’s portfolio assistant. I don’t use a generative AI model. I match your question against the information in his portfolio and answer only from that, so I won’t make things up. If something isn’t in his portfolio, I’ll say so.`,
+    `I'm Salman's portfolio assistant. I don't use a generative AI model. I match your question against the information in his portfolio and answer only from that, so I won't make things up. If something isn't in his portfolio, I'll say so.`,
     'bot',
     { suggestions: ['Who is Salman?', 'What AI work has he done?'] },
   );
@@ -589,7 +589,7 @@ export function answer(rawQuery: string, context: ChatContext = {}): ChatReply {
 
   // Short social messages
   if (wordCount <= 4 && intents.has('thanks') && !project) {
-    return reply('You’re welcome! Anything else you’d like to know about Salman?', 'thanks', { context, suggestions: ['How can I contact him?', 'Show me his projects'] });
+    return reply("You're welcome! Anything else you'd like to know about Salman?", 'thanks', { context, suggestions: ['How can I contact him?', 'Show me his projects'] });
   }
   if (wordCount <= 3 && intents.has('bye')) return reply('Thanks for stopping by! Salman is one message away on WhatsApp.', 'bye', { links: [CONTACT_LINKS[0]] });
   if (intents.has('bot')) return botAnswer();
@@ -601,7 +601,7 @@ export function answer(rawQuery: string, context: ChatContext = {}): ChatReply {
   if (intents.has('personal') && !intents.has('experience')) return notSpecified('Personal information', 'personal');
   if (intents.has('rates')) return notSpecified('Rates and salary expectations', 'rates');
   if (intents.has('certifications')) {
-    return reply(`No certifications are listed in Salman’s portfolio. His formal qualification is a **${education.degree}** from ${education.school}.`, 'certifications', {
+    return reply(`No certifications are listed in Salman's portfolio. His formal qualification is a **${education.degree}** from ${education.school}.`, 'certifications', {
       links: CONTACT_LINKS,
       suggestions: ['What is his experience?', 'What are his skills?'],
     });
@@ -660,7 +660,7 @@ export function answer(rawQuery: string, context: ChatContext = {}): ChatReply {
     const best = hits.slice(0, 2).filter((h, i) => i === 0 || h.score > hits[0].score * 0.8);
     const p = best[0].doc.project;
     return reply(
-      `Here’s what I found in Salman’s portfolio:\n${list(best.map((h) => h.doc.text))}`,
+      `Here's what I found in Salman's portfolio:\n${list(best.map((h) => h.doc.text))}`,
       `retrieval:${best.map((h) => h.score.toFixed(1)).join(',')}`,
       {
         context: p ? { project: p.slug } : context,
@@ -671,7 +671,7 @@ export function answer(rawQuery: string, context: ChatContext = {}): ChatReply {
   }
 
   return reply(
-    `I couldn’t find that in Salman’s portfolio, so I won’t guess. I can tell you about his experience, skills, AI work, projects, services or how to contact him, or you can ask him directly.`,
+    `I couldn't find that in Salman's portfolio, so I won't guess. I can tell you about his experience, skills, AI work, projects, services or how to contact him, or you can ask him directly.`,
     'unknown',
     { context, links: CONTACT_LINKS, suggestions: ['Who is Salman?', 'What AI work has he done?', 'Show me his projects', 'How can I contact him?'] },
   );

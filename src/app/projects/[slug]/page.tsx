@@ -125,7 +125,7 @@ export default async function ProjectPage({ params }: Params) {
                   <WhatsApp /> Message on WhatsApp
                 </a>
                 <a className="btn btn--outline-ink" href={person.resumePath} download>
-                  <Download /> Download résumé
+                  <Download /> Download resume
                 </a>
               </div>
             </aside>

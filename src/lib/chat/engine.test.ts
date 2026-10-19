@@ -73,7 +73,7 @@ test('declines to invent what is not in the portfolio', () => {
   assert.equal(m('What is his hourly rate?'), 'rates');
   assert.equal(m('how old is he'), 'personal');
   assert.equal(m('Does he have any certifications?'), 'certifications');
-  assert.match(answer('Did he lead a team?').text, /doesn’t list formal team-lead/);
+  assert.match(answer('Did he lead a team?').text, /doesn't list formal team-lead/);
   assert.equal(m('What is the airspeed velocity of an unladen swallow?'), 'unknown');
 });
 
@@ -84,7 +84,7 @@ test('answers questions about an area of the stack', () => {
 
 test('is honest about being a bot', () => {
   assert.equal(m('are you a bot?'), 'bot');
-  assert.match(answer('are you ai').text, /don’t use a generative AI model/);
+  assert.match(answer('are you ai').text, /don't use a generative AI model/);
 });
 
 test('retrieval fallback finds specific facts', () => {

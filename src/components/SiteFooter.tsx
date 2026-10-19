@@ -16,7 +16,7 @@ export function SiteFooter() {
           <li><a href={person.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
           <li><a href={whatsappHref()} target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
           <li><a href={`mailto:${person.email}`}>Email</a></li>
-          <li><a href={person.resumePath} download>Résumé</a></li>
+          <li><a href={person.resumePath} download>Resume</a></li>
         </ul>
       </div>
     </footer>

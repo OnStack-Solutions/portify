@@ -8,7 +8,7 @@ export function Contact() {
     { icon: <WhatsApp />, label: 'WhatsApp', value: person.phoneDisplay, href: whatsappHref(), external: true },
     { icon: <LinkedIn />, label: 'LinkedIn', value: `in/${person.linkedinHandle}`, href: person.linkedin, external: true },
     { icon: <Phone />, label: 'Phone', value: person.phoneDisplay, href: telHref },
-    { icon: <Download />, label: 'Résumé', value: 'Download PDF', href: person.resumePath, download: true },
+    { icon: <Download />, label: 'Resume', value: 'Download PDF', href: person.resumePath, download: true },
   ];
   return (
     <section className="section section--ink" id="contact" aria-labelledby="contact-title">
@@ -19,7 +19,7 @@ export function Contact() {
             Have a role or project in mind? <span>Let&apos;s talk.</span>
           </h2>
           <p className="contact__lead">
-            The quickest way to reach me is WhatsApp or email, and my résumé is one click away.
+            The quickest way to reach me is WhatsApp or email, and my resume is one click away.
           </p>
           <a className="contact__email" href={`mailto:${person.email}`}>
             {person.email} <ArrowUpRight />

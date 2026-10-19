@@ -22,7 +22,7 @@ export function ContactForm() {
   const validate = (): Errors => {
     const e: Errors = {};
     if (values.name.trim().length < 2) e.name = 'Please enter your name.';
-    if (values.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) e.email = 'That email doesn’t look right.';
+    if (values.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) e.email = "That email doesn't look right.";
     if (values.message.trim().length < 10) e.message = 'Please add a short message (10+ characters).';
     return e;
   };
@@ -65,7 +65,7 @@ export function ContactForm() {
         </div>
       </div>
       <div className="field">
-        <label htmlFor={`${id}-topic`}>What’s it about?</label>
+        <label htmlFor={`${id}-topic`}>What&apos;s it about?</label>
         <select id={`${id}-topic`} value={values.topic} onChange={set('topic')}>
           {TOPICS.map((t) => <option key={t}>{t}</option>)}
         </select>

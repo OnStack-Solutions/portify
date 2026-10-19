@@ -12,7 +12,7 @@ export function Hero() {
         <div className="hero__grid">
           <div>
             <h1 id="hero-title">
-              <span className="hero__kicker">{person.name} — {person.titles[0]}</span>
+              <span className="hero__kicker">{person.name} | {person.titles[0]}</span>
               <span className="hero__title">
                 <span>Full-stack products,</span>
                 <span className="hero__accent">with AI built in.</span>
@@ -30,7 +30,7 @@ export function Hero() {
                 See selected work <ArrowRight className="icon-shift" />
               </a>
               <a className="btn btn--outline-ink" href={person.resumePath} download>
-                <Download /> Download résumé
+                <Download /> Download resume
               </a>
             </div>
 
@@ -63,7 +63,7 @@ export function Hero() {
           <div className="hero__fact"><dt>Experience</dt><dd>{years}+ years · {experience.roles[0].title} at {experience.company}</dd></div>
           <div className="hero__fact"><dt>Frontend</dt><dd>React, Next.js, Redux, Tailwind CSS</dd></div>
           <div className="hero__fact"><dt>Backend &amp; data</dt><dd>Node.js, NestJS, Express.js · MySQL, PostgreSQL, MongoDB</dd></div>
-          <div className="hero__fact"><dt>AI &amp; integrations</dt><dd>OpenAI, Anthropic, Ollama · RAG, NL‑to‑SQL · POS/PMS, Xero</dd></div>
+          <div className="hero__fact"><dt>AI &amp; integrations</dt><dd>OpenAI, Anthropic, Ollama · RAG, NL-to-SQL · POS/PMS, Xero</dd></div>
         </dl>
       </div>
     </section>

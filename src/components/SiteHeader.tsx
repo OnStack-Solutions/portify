@@ -31,7 +31,7 @@ export function SiteHeader() {
           </div>
           <div className="nav__actions">
             <a className="nav__resume" href={person.resumePath} download>
-              <Download /> Résumé
+              <Download /> Resume
             </a>
             <Link className="btn btn--accent btn--small" href="/#contact">Get in touch</Link>
           </div>

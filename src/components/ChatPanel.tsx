@@ -139,8 +139,8 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
       <div className="chat__log" ref={logRef} aria-live="polite" aria-busy={loading}>
         {messages.length === 0 && (
           <div className="chat__empty">
-            <h3>Questions about Salman’s work?</h3>
-            <p>Ask about his experience, skills, projects or how to reach him. Answers come from his portfolio and resume. If something isn’t covered, I’ll say so.</p>
+            <h3>Questions about Salman&apos;s work?</h3>
+            <p>Ask about his experience, skills, projects or how to reach him. Answers come from his portfolio and resume. If something isn&apos;t covered, I&apos;ll say so.</p>
           </div>
         )}
         {messages.map((m) => (
@@ -194,7 +194,7 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
           ref={inputRef}
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Ask about skills, projects, AI…"
+          placeholder="Ask about skills, projects, AI..."
           maxLength={MAX_CHARS}
           autoComplete="off"
           enterKeyHint="send"
@@ -203,7 +203,7 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
           <Send />
         </button>
       </form>
-      <p className="chat__foot">Searches Salman’s portfolio. It does not generate or guess answers.</p>
+      <p className="chat__foot">Searches Salman&apos;s portfolio. It does not generate or guess answers.</p>
     </section>
   );
 }
