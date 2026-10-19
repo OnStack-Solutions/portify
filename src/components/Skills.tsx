@@ -3,12 +3,16 @@ import { Section } from './Section';
 
 export function Skills() {
   return (
-    <Section id="skills" title="Skills" note="Grouped by area. Each case study lists the stack used on that project.">
+    <Section id="skills" num="04" title="Skills" note="Grouped by area. Each case study lists the stack used on that project.">
       <dl className="skills">
         {skills.map((g) => (
-          <div key={g.name}>
+          <div className="skill-group" key={g.name}>
             <dt>{g.name}</dt>
-            <dd>{g.items.join(', ')}</dd>
+            <dd>
+              <span className="skill-tags">
+                {g.items.map((item) => <span key={item} className="skill-tag">{item}</span>)}
+              </span>
+            </dd>
           </div>
         ))}
       </dl>

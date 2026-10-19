@@ -6,7 +6,7 @@ import { ArrowRight } from './icons';
 
 export function Work() {
   return (
-    <Section id="work" title="Selected work" note="Client platforms I have built and worked on.">
+    <Section id="work" num="01" title="Selected work" note="Client platforms I have built and worked on.">
       <ul className="work" role="list">
         {featuredProjects.map((p) => (
           <li key={p.slug} className="card">

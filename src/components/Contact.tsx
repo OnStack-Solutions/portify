@@ -13,23 +13,27 @@ export function Contact() {
     { icon: <Download />, label: 'Resume', value: 'Download PDF', href: person.resumePath, download: true },
   ];
   return (
-    <Section id="contact" title="Contact">
+    <Section id="contact" num="06" title="Contact">
       <p className="lead">
         Have a role or a project in mind? The quickest way to reach me is WhatsApp or email, and my resume is one click away.
       </p>
       <div className="contact__grid">
-        <ul className="contact-list" role="list">
+        <ul className="contact-methods" role="list">
           {items.map((c) => (
-            <li key={c.label}>
-              <a
-                href={c.href}
-                {...(c.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                {...(c.download ? { download: true } : {})}
-              >
-                {c.icon}
-                <span className="contact-list__label">{c.label}</span>
-                <span className="contact-list__value">{c.value}</span>
-              </a>
+            <li key={c.label} className="contact-method">
+              <span className="contact-method__icon" aria-hidden>{c.icon}</span>
+              <div>
+                <p className="contact-method__label">{c.label}</p>
+                <p className="contact-method__value">
+                  <a
+                    href={c.href}
+                    {...(c.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    {...(c.download ? { download: true } : {})}
+                  >
+                    {c.value}
+                  </a>
+                </p>
+              </div>
             </li>
           ))}
         </ul>

@@ -21,13 +21,14 @@ const POINTS = [
 
 export function AiWork() {
   return (
-    <Section id="ai" title="AI integration" note="How I approach LLM features in production.">
+    <Section id="ai" num="02" title="AI integration" note="How I approach LLM features in production.">
       <p className="lead">
         I add LLM features to products that already have users and real data: a natural-language analytics product, an assistant real-estate agents use every day, and AI features on a hospitality platform. Most of the engineering goes into what surrounds the model: giving it the right context, checking its output and controlling what it can access.
       </p>
       <div className="points">
-        {POINTS.map((p) => (
+        {POINTS.map((p, i) => (
           <div className="point" key={p.title}>
+            <p className="point__num">{String(i + 1).padStart(2, '0')}</p>
             <h3>{p.title}</h3>
             <p>{p.body}</p>
             <small>See <Link className="text-link" href={`/projects/${p.project.slug}`}>{p.project.name}</Link></small>
