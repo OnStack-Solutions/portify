@@ -1,12 +1,11 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import avatar from '@/assets/salman-avatar.jpg';
 import { person } from '@/content/profile';
 import { MobileNav } from './MobileNav';
-import { LinkedIn, Mail } from './icons';
+import { Download } from './icons';
 
 export const NAV = [
   { href: '/#work', label: 'Work' },
+  { href: '/#about', label: 'About' },
   { href: '/#ai', label: 'AI' },
   { href: '/#experience', label: 'Experience' },
   { href: '/#skills', label: 'Skills' },
@@ -18,23 +17,24 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="container site-header__inner">
         <Link href="/" className="brand" aria-label={`${person.name}, home`}>
-          <span className="avatar"><Image src={avatar} alt="" width={30} height={30} sizes="30px" /></span>
-          {person.name}
+          <span className="brand__mark" aria-hidden>SB</span>
+          <span className="brand__text">
+            <span className="brand__name">{person.name}</span>
+            <span className="brand__role">{person.titles[1]}</span>
+          </span>
         </Link>
         <MobileNav>
-          {NAV.map((item) => (
-            <Link key={item.href} className="nav__link" href={item.href}>{item.label}</Link>
-          ))}
-          <span className="nav__actions">
-            <a className="icon-link" href={person.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)" title="LinkedIn">
-              <LinkedIn />
+          <div className="nav__links">
+            {NAV.map((item) => (
+              <Link key={item.href} className="nav__link" href={item.href}>{item.label}</Link>
+            ))}
+          </div>
+          <div className="nav__actions">
+            <a className="nav__resume" href={person.resumePath} download>
+              <Download /> Résumé
             </a>
-            <a className="icon-link" href={`mailto:${person.email}`} aria-label={`Email ${person.email}`} title={person.email}>
-              <Mail />
-            </a>
-            <a className="btn btn--secondary btn--small" href={person.resumePath} download>Resume</a>
-            <Link className="btn btn--primary btn--small" href="/#contact">Contact</Link>
-          </span>
+            <Link className="btn btn--accent btn--small" href="/#contact">Get in touch</Link>
+          </div>
         </MobileNav>
       </div>
     </header>

@@ -11,7 +11,7 @@ export function homeJsonLd() {
         '@id': `${url}/#person`,
         name: person.name,
         url,
-        image: `${url}/opengraph-image.jpg`,
+        image: `${url}/opengraph-image`,
         jobTitle: person.titles[1],
         description: person.summary,
         email: `mailto:${person.email}`,

@@ -1,5 +1,6 @@
 import { Hero } from '@/components/Hero';
 import { Work } from '@/components/Work';
+import { About } from '@/components/About';
 import { AiWork } from '@/components/AiWork';
 import { Experience } from '@/components/Experience';
 import { Skills } from '@/components/Skills';
@@ -17,6 +18,7 @@ export default function HomePage() {
       <JsonLd data={homeJsonLd()} />
       <Hero />
       <Work />
+      <About />
       <AiWork />
       <Experience />
       <Skills />

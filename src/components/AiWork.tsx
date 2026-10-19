@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Section } from './Section';
+import { ArrowRight } from './icons';
 
 const POINTS = [
   {
@@ -21,20 +22,23 @@ const POINTS = [
 
 export function AiWork() {
   return (
-    <Section id="ai" num="02" title="AI integration" note="How I approach LLM features in production.">
-      <p className="lead">
-        I add LLM features to products that already have users and real data: a natural-language analytics product, an assistant real-estate agents use every day, and AI features on a hospitality platform. Most of the engineering goes into what surrounds the model: giving it the right context, checking its output and controlling what it can access.
-      </p>
-      <div className="points">
+    <Section
+      id="ai"
+      tone="ink"
+      eyebrow="AI integration"
+      title="Most of the engineering happens around the model."
+      note="I add LLM features to products that already have users and real data: a natural-language analytics product, an assistant real-estate agents use every day, and AI features on a hospitality platform. The work is giving the model the right context, checking its output and controlling what it can access."
+    >
+      <ol className="principles" role="list">
         {POINTS.map((p, i) => (
-          <div className="point" key={p.title}>
-            <p className="point__num">{String(i + 1).padStart(2, '0')}</p>
+          <li className="principle reveal" key={p.title}>
+            <p className="principle__n">{String(i + 1).padStart(2, '0')}</p>
             <h3>{p.title}</h3>
             <p>{p.body}</p>
-            <small>See <Link className="text-link" href={`/projects/${p.project.slug}`}>{p.project.name}</Link></small>
-          </div>
+            <Link href={`/projects/${p.project.slug}`}>See {p.project.name} <ArrowRight /></Link>
+          </li>
         ))}
-      </div>
+      </ol>
     </Section>
   );
 }

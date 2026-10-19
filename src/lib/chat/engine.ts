@@ -313,7 +313,6 @@ function projectsAnswer(): ChatReply {
 function projectAnswer(p: Project, facet?: string): ChatReply {
   const context: ChatContext = { project: p.slug };
   const links: ChatLink[] = [projectLink(p)];
-  if (p.url) links.push({ label: `Visit ${p.name}`, href: p.url, external: true });
   const more = [`What tech did ${p.name} use?`, `What was his role on ${p.name}?`, 'Show me other projects'];
 
   if (facet === 'tech') {
@@ -331,7 +330,7 @@ function projectAnswer(p: Project, facet?: string): ChatReply {
   }
   if (facet === 'link') {
     return reply(
-      p.url ? `You can visit **${p.name}** at ${p.url}. Some client products require a login.` : `There is no public link for **${p.name}** in Salman’s portfolio, but the case study covers it in detail.`,
+      `**${p.name}** is a client product, so I don’t share links to it here. The case study covers what it does, the architecture and Salman’s role.`,
       `project:${p.slug}:link`,
       { context, links, suggestions: more.slice(0, 2) },
     );
