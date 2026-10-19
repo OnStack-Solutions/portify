@@ -6,7 +6,6 @@ import { person } from '@/content/profile';
 export const ogSize = { width: 1200, height: 630 };
 
 const INK = '#0e1217';
-const INK_3 = '#1f2630';
 const LINE = 'rgba(255,255,255,0.14)';
 const TEXT = '#eef0f3';
 const TEXT_2 = '#a9b1bd';
@@ -39,32 +38,20 @@ function Kicker({ children }: { children: string }) {
   );
 }
 
-/** Homepage / profile share card. */
+// Matches the studio backdrop of salman-photo.jpg so the photo fills the card seamlessly.
+const PINK = '#dfb7b7';
+
+/**
+ * Homepage / profile share card: the pink-background portrait on its own,
+ * centred so square crops (WhatsApp thumbnails) still show the face.
+ */
 export async function renderHomeOg() {
   const { photo, fonts } = await assets();
   return new ImageResponse(
     (
-      <div style={{ width: '100%', height: '100%', display: 'flex', background: INK, color: TEXT, fontFamily: 'Geist', padding: 64 }}>
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: 1, paddingRight: 56 }}>
-          <Kicker>{`${person.name} — ${person.titles[0]}`}</Kicker>
-          <div style={{ display: 'flex', flexDirection: 'column', fontSize: 76, fontWeight: 600, lineHeight: 1.02, letterSpacing: -3.5 }}>
-            <div style={{ display: 'flex' }}>Full-stack products,</div>
-            <div style={{ display: 'flex', color: ACCENT }}>with AI built in.</div>
-          </div>
-          <div style={{ display: 'flex', gap: 10 }}>
-            {['React', 'Next.js', 'Node.js', 'TypeScript', 'LLMs · RAG'].map((t) => (
-              <div key={t} style={{ display: 'flex', padding: '10px 16px', borderRadius: 8, border: `1px solid ${LINE}`, background: INK_3, fontFamily: 'Mono', fontSize: 19, color: TEXT_2 }}>{t}</div>
-            ))}
-          </div>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', width: 360, borderRadius: 22, overflow: 'hidden', border: `1px solid ${LINE}` }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={photo} width={360} height={430} style={{ objectFit: 'cover', objectPosition: '50% 15%' }} alt="" />
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', flex: 1, padding: '0 22px', background: INK_3, gap: 4 }}>
-            <div style={{ display: 'flex', fontSize: 28, fontWeight: 600, letterSpacing: -0.8 }}>{person.name}</div>
-            <div style={{ display: 'flex', fontFamily: 'Mono', fontSize: 16, color: TEXT_2, letterSpacing: 1, textTransform: 'uppercase' }}>{person.location}</div>
-          </div>
-        </div>
+      <div style={{ width: '100%', height: '100%', display: 'flex', position: 'relative', background: PINK }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={photo} width={560} height={700} style={{ position: 'absolute', left: 320, top: -10 }} alt="" />
       </div>
     ),
     { ...ogSize, fonts },

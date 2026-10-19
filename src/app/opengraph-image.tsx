@@ -1,6 +1,6 @@
 import { renderHomeOg, ogSize } from './og';
 
-export const alt = 'Salman Bashir, Full Stack Developer: full-stack products with AI built in.';
+export const alt = "Photo of Salman Bashir, Full Stack Developer";
 export const size = ogSize;
 export const contentType = 'image/png';
 
