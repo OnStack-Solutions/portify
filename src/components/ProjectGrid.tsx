@@ -1,7 +1,8 @@
 'use client';
 
+import Image, { type StaticImageData } from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, type CSSProperties } from 'react';
 import { ArrowRight } from './icons';
 
 export type ProjectCardData = {
@@ -14,6 +15,11 @@ export type ProjectCardData = {
   tech: string[];
   ai?: boolean;
   solo?: boolean;
+  /** Main product screenshot, when one exists. */
+  cover?: StaticImageData;
+  /** Mobile-only products: phone screens used as the card cover instead. */
+  coverPhones?: StaticImageData[];
+  brand?: string;
 };
 
 const FILTERS: { key: string; label: string; test: (p: ProjectCardData) => boolean }[] = [
@@ -47,6 +53,34 @@ export function ProjectGrid({ projects }: { projects: ProjectCardData[] }) {
       <ul className="pgrid" role="list">
         {projects.map((p, i) => (
           <li key={p.slug} className="pcard" hidden={!filter.test(p)}>
+            {/* Decorative duplicate of the title link, so it is hidden from assistive tech and the tab order. */}
+            <Link
+              href={`/projects/${p.slug}`}
+              className={`pcard__media${p.cover || p.coverPhones ? '' : ' pcard__media--type'}`}
+              style={p.brand ? ({ '--brand': p.brand } as CSSProperties) : undefined}
+              aria-hidden="true"
+              tabIndex={-1}
+            >
+              {p.cover ? (
+                <span className="pcard__window">
+                  <span className="pcard__bar"><i /><i /><i /></span>
+                  <Image src={p.cover} alt="" placeholder="blur" sizes="(max-width: 680px) 90vw, (max-width: 1060px) 45vw, 380px" className="pcard__img" />
+                </span>
+              ) : p.coverPhones ? (
+                <span className="pcard__phones">
+                  {p.coverPhones.slice(0, 3).map((src) => (
+                    <span key={src.src} className="pcard__phone">
+                      <Image src={src} alt="" placeholder="blur" sizes="120px" className="phone__img" />
+                    </span>
+                  ))}
+                </span>
+              ) : (
+                <span className="pcard__type">
+                  <b>{p.name.split(/\s+/).map((w) => w[0]).join('')}</b>
+                  <span>{p.industry}</span>
+                </span>
+              )}
+            </Link>
             <div className="pcard__top">
               <span className="pcard__n">{String(i + 1).padStart(2, '0')}</span>
               <span className="pcard__industry">{p.industry}</span>

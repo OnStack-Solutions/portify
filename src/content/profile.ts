@@ -506,6 +506,29 @@ export const projects: Project[] = [
     tech: ['Ruby on Rails', 'Next.js', 'Node.js', 'Express.js', 'MongoDB', 'MySQL', 'Bootstrap'],
     aliases: ['nextdesk', 'helpdesk', 'ticketing', 'support portal'],
   },
+  {
+    slug: 'car-rental-marketplace',
+    name: 'Car Rental Marketplace',
+    tagline: 'Peer-to-peer car rental app modelled on Turo',
+    summary: 'A client\'s car-sharing mobile app, built by our team to mirror Turo. I worked as a full stack developer focused on the backend: NestJS services, MongoDB and the Google Maps API.',
+    industry: 'Car rental marketplace',
+    role: 'Full Stack Developer',
+    overview: 'A peer-to-peer car rental app for a client, modelled closely on Turo. Guests search for a car by city, airport, train station, hotel or their current location, save favourites, manage trips and message through an inbox, while owners can sign up to list their cars as hosts. The mobile app is built in React Native on a NestJS and MongoDB backend, with the Google Maps API for locations.',
+    features: [
+      'Location search by city, airport, train station, hotel or current location',
+      'Recently viewed cars, favourites and trips',
+      'In-app inbox',
+      'Host onboarding for owners listing their cars',
+      'Sign-up and log-in',
+    ],
+    contributions: [
+      'Worked as a full stack developer on the team, focused on the backend.',
+      'Built backend services in NestJS with MongoDB.',
+      'Integrated the Google Maps API.',
+    ],
+    tech: ['NestJS', 'Node.js', 'MongoDB', 'React Native', 'Google Maps API'],
+    aliases: ['turo', 'turo clone', 'car rental', 'car sharing', 'car hire'],
+  },
 ];
 
 export const featuredProjects = projects.filter((p) => p.featured);

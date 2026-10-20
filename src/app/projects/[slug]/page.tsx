@@ -6,6 +6,8 @@ import { getSiteUrl, whatsappHref } from '@/lib/site';
 import { JsonLd } from '@/components/JsonLd';
 import { Diagram } from '@/components/Diagram';
 import { ArrowLeft, Download, WhatsApp } from '@/components/icons';
+import { ProjectScreens, ProjectShowcase } from '@/components/ProjectShowcase';
+import { showcases } from '@/content/showcase';
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -37,6 +39,7 @@ export default async function ProjectPage({ params }: Params) {
   const prev = projects[(i - 1 + projects.length) % projects.length];
   const next = projects[(i + 1) % projects.length];
   const url = getSiteUrl();
+  const show = showcases[p.slug];
 
   return (
     <article>
@@ -51,7 +54,7 @@ export default async function ProjectPage({ params }: Params) {
           ],
         }}
       />
-      <header className="case-hero">
+      <header className={`case-hero${show ? ' case-hero--shot' : ''}`}>
         <div className="container">
           <div className="case-topbar">
             <Link href="/#work" className="back-link">
@@ -75,13 +78,14 @@ export default async function ProjectPage({ params }: Params) {
           <dl className="case__meta">
             <div><dt>My role</dt><dd>{p.role}</dd></div>
             <div><dt>Domain</dt><dd>{p.industry}</dd></div>
-            <div><dt>Delivered at</dt><dd>Nextbridge Limited</dd></div>
           </dl>
         </div>
       </header>
 
       <div className="case">
         <div className="container">
+          {show && <ProjectShowcase data={show} name={p.name} />}
+
           {p.diagram && (
             <div className="case__diagram">
               <Diagram data={p.diagram} label={p.name} large />
@@ -130,6 +134,8 @@ export default async function ProjectPage({ params }: Params) {
               </div>
             </aside>
           </div>
+
+          {(show?.more || show?.apps) && <ProjectScreens shots={show.more ?? []} apps={show.apps ?? []} name={p.name} />}
 
           <div className="case-back">
             <Link href="/#work" className="btn btn--outline"><ArrowLeft /> Back to all projects</Link>
