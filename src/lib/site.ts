@@ -24,7 +24,7 @@ export const telHref = `tel:${person.phoneE164}`;
 export const seo = {
   title: `${person.name} | Full Stack Developer and AI Integration Engineer`,
   description:
-    'Full Stack Developer in Lahore with 5+ years building React, Next.js and Node.js products, specialising in AI integration: RAG, natural-language-to-SQL and AI assistants.',
+    'Full Stack Developer in Lahore with nearly 5 years building React, Next.js and Node.js products, specialising in AI integration: RAG, natural-language-to-SQL and AI assistants.',
   keywords: [
     'Salman Bashir',
     'Full Stack Developer',

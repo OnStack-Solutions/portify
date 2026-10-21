@@ -12,7 +12,8 @@ import {
   education,
   projects,
   featuredProjects,
-  yearsOfExperience,
+  experienceText,
+  experienceTextCapitalized,
   formatMonth,
   type Project,
 } from '../../content/profile.ts';
@@ -243,7 +244,6 @@ function scoreIntents(q: string): Map<Intent, number> {
 const list = (items: string[]) => items.map((i) => `- ${i}`).join('\n');
 const projectLink = (p: Project): ChatLink => ({ label: `${p.name} case study`, href: `/projects/${p.slug}` });
 const names = (ps: Project[]) => ps.map((p) => `**${p.name}**`).join(', ');
-const years = () => yearsOfExperience();
 const roleLine = () => {
   const current = experience.roles[0];
   return `${current.title} at ${experience.company} (since ${formatMonth(current.start)})`;
@@ -255,7 +255,7 @@ function reply(text: string, matched: string, opts: Partial<Omit<ChatReply, 'tex
 
 function aboutAnswer(): ChatReply {
   return reply(
-    `**${person.name}** is a ${person.titles.join(' · ')} based in ${person.location}. He has ${years()}+ years of experience and is currently ${roleLine()}.\n\n${person.summaryShort} His recent work includes ${names(featuredProjects.filter((p) => p.ai))}.`,
+    `**${person.name}** is a ${person.titles.join(' · ')} based in ${person.location}. He has ${experienceText()} of experience and is currently ${roleLine()}.\n\n${person.summaryShort} His recent work includes ${names(featuredProjects.filter((p) => p.ai))}.`,
     'about',
     { suggestions: ['What AI work has he done?', 'Show me his projects', 'What is his tech stack?', 'How can I contact him?'], links: [RESUME_LINK] },
   );
@@ -264,7 +264,7 @@ function aboutAnswer(): ChatReply {
 function experienceAnswer(): ChatReply {
   const roles = experience.roles.map((r) => `${r.title}, ${formatMonth(r.start)} to ${formatMonth(r.end)}`);
   return reply(
-    `Salman has **${years()}+ years** of experience as a software engineer. He is currently a **${experience.roles[0].title}** at **${experience.company}** (${experience.location}), where his roles have been:\n${list(roles)}\n\nWhat he does there:\n${list([...experience.highlights])}`,
+    `Salman has **${experienceText()}** of experience as a software engineer. He is currently a **${experience.roles[0].title}** at **${experience.company}** (${experience.location}), where his roles have been:\n${list(roles)}\n\nWhat he does there:\n${list([...experience.highlights])}`,
     'experience',
     { suggestions: ['Which projects did he work on?', 'What AI work has he done?', 'Has he built anything solo?'], links: [RESUME_LINK] },
   );
@@ -272,7 +272,7 @@ function experienceAnswer(): ChatReply {
 
 function yearsAnswer(): ChatReply {
   return reply(
-    `Salman has **${years()}+ years** of professional experience building production web applications. He has been a ${experience.roles[0].title} at ${experience.company} since ${formatMonth(experience.roles[0].start)}.`,
+    `Salman has **${experienceText()}** of professional experience building production web applications. He has been a ${experience.roles[0].title} at ${experience.company} since ${formatMonth(experience.roles[0].start)}.`,
     'years',
     { suggestions: ['Show his career progression', 'What is his tech stack?'] },
   );
@@ -502,7 +502,7 @@ function bestAnswer(): ChatReply {
 function hireAnswer(): ChatReply {
   return reply(
     `In short:\n${list([
-      `**${years()}+ years** building production web applications; currently ${experience.roles[0].title} at ${experience.company}.`,
+      `**${experienceTextCapitalized()}** building production web applications; currently ${experience.roles[0].title} at ${experience.company}.`,
       '**Full stack.** React and Next.js interfaces, Node.js services with Express.js and NestJS, MySQL, PostgreSQL and MongoDB.',
       '**AI integration.** Natural-language-to-SQL, RAG, OpenAI, Anthropic and self-hosted LLMs, with the safety checks needed for real data.',
       '**Integrations.** Hospitality POS and PMS systems (Oracle OHIP, Oracle Gen1 and Gen2, Infrasys, Omega, Foodics), Xero accounting, AWS S3 and Algolia.',

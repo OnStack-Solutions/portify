@@ -1,11 +1,10 @@
 import Image from 'next/image';
 import photo from '@/assets/salman-photo.jpg';
-import { experience, person, yearsOfExperience } from '@/content/profile';
+import { experience, experienceText, experienceTextCapitalized, person } from '@/content/profile';
 import { whatsappHref } from '@/lib/site';
 import { ArrowRight, Download, LinkedIn, Mail, MapPin, WhatsApp } from './icons';
 
 export function Hero() {
-  const years = yearsOfExperience();
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="container">
@@ -20,7 +19,7 @@ export function Hero() {
             </h1>
 
             <p className="hero__lead">
-              I&apos;m a full stack developer with <strong>{years}+ years</strong> of shipping production web apps
+              I&apos;m a full stack developer with <strong>{experienceText()}</strong> of shipping production web apps
               with React, Next.js and Node.js, and integrating LLMs into them: natural-language-to-SQL,
               retrieval-augmented generation and AI assistants.
             </p>
@@ -60,7 +59,7 @@ export function Hero() {
         </div>
 
         <dl className="hero__facts">
-          <div className="hero__fact"><dt>Experience</dt><dd>{years}+ years · {experience.roles[0].title} at {experience.company}</dd></div>
+          <div className="hero__fact"><dt>Experience</dt><dd>{experienceTextCapitalized()} · {experience.roles[0].title} at {experience.company}</dd></div>
           <div className="hero__fact"><dt>Frontend</dt><dd>React, Next.js, Redux, Tailwind CSS</dd></div>
           <div className="hero__fact"><dt>Backend &amp; data</dt><dd>Node.js, NestJS, Express.js · MySQL, PostgreSQL, MongoDB</dd></div>
           <div className="hero__fact"><dt>AI &amp; integrations</dt><dd>OpenAI, Anthropic, Ollama · RAG, NL-to-SQL · POS/PMS, Xero</dd></div>

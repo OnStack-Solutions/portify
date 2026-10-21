@@ -1,4 +1,4 @@
-import { experience, person, services, yearsOfExperience } from '@/content/profile';
+import { experience, experienceTextCapitalized, person, services } from '@/content/profile';
 import { Section } from './Section';
 
 export function About() {
@@ -7,7 +7,7 @@ export function About() {
       id="about"
       tone="tint"
       eyebrow="About"
-      title={`${yearsOfExperience()}+ years of shipping production software.`}
+      title={`${experienceTextCapitalized()} of shipping production software.`}
     >
       <div className="about">
         <div className="about__text">

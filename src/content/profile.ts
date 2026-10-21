@@ -18,12 +18,12 @@ export const person = {
   linkedin: 'https://www.linkedin.com/in/salman-bashir-a49021171/',
   linkedinHandle: 'salman-bashir-a49021171',
   resumePath: '/Salman_Bashir_Resume.pdf',
-  // Total professional experience, as stated by Salman.
-  experienceYears: 5,
+  // Total professional experience, worded as Salman states it on his resume.
+  experience: 'nearly 5 years',
   summary:
-    'Full Stack Developer with 5+ years of experience building production web applications with React, Next.js, TypeScript and Node.js (Express.js and NestJS). Specialized in AI integration, including natural-language-to-SQL, retrieval-augmented generation and AI assistants, and in integrations with hospitality POS and PMS systems and Xero accounting.',
+    'Full Stack Developer with nearly 5 years of experience building production web applications with React, Next.js, TypeScript and Node.js (Express.js and NestJS). Specialized in AI integration, including natural-language-to-SQL, retrieval-augmented generation and AI assistants, and in integrations with hospitality POS and PMS systems and Xero accounting.',
   intro: [
-    "I'm a full stack developer with 5+ years of experience designing and shipping production web applications. I work across the whole stack: React and Next.js on the frontend, Node.js services built with Express.js and NestJS behind them, and MySQL, PostgreSQL and MongoDB underneath.",
+    "I'm a full stack developer with nearly 5 years of experience designing and shipping production web applications. I work across the whole stack: React and Next.js on the frontend, Node.js services built with Express.js and NestJS behind them, and MySQL, PostgreSQL and MongoDB underneath.",
     'My focus is AI integration: natural-language-to-SQL with retrieval-augmented generation, AI assistants, and LLM features on OpenAI, Anthropic and self-hosted models. I also build integrations with hospitality POS and PMS systems, including Oracle OHIP, Oracle Gen1 and Gen2, Infrasys, Omega and Foodics, and with Xero accounting.',
   ],
   summaryShort:
@@ -535,9 +535,14 @@ export const featuredProjects = projects.filter((p) => p.featured);
 export const otherProjects = projects.filter((p) => !p.featured);
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
 
-/** Total professional experience in years, shown as "5+ years". */
-export function yearsOfExperience(): number {
-  return person.experienceYears;
+/** Total professional experience as shown on the site, e.g. "nearly 5 years". */
+export function experienceText(): string {
+  return person.experience;
+}
+
+/** The same wording for the start of a sentence, e.g. "Nearly 5 years". */
+export function experienceTextCapitalized(): string {
+  return person.experience.charAt(0).toUpperCase() + person.experience.slice(1);
 }
 
 export function formatMonth(ym: string | null): string {

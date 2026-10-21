@@ -9,7 +9,7 @@ import { Contact } from '@/components/Contact';
 import { JsonLd } from '@/components/JsonLd';
 import { homeJsonLd } from '@/lib/jsonld';
 
-// Static page, re-generated daily so "years of experience" stays current.
+// Static page, re-generated daily so dated content stays current.
 export const revalidate = 86400;
 
 export default function HomePage() {

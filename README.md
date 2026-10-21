@@ -74,7 +74,7 @@ After the first deploy:
 
 - **New project:** add an entry to `projects` in `src/content/profile.ts` and set `featured: true` to show it
   as a card. Its case-study page, sitemap entry, share image and assistant knowledge are created automatically.
-- **Years of experience:** change `experienceYears` in `src/content/profile.ts` (currently 5, shown as "5+ years").
+- **Years of experience:** change `experience` in `src/content/profile.ts` (currently "nearly 5 years"); every mention on the site and in the assistant uses it.
 - **Link preview image:** `src/app/opengraph-image.jpg` (1200×630). Case studies generate their own preview with your photo.
 - **New resume:** replace `public/Salman_Bashir_Resume.pdf`, keeping the same file name.
 - **New photo:** replace `src/assets/salman-photo.jpg` (4:5 portrait) and `src/assets/salman-avatar.jpg` (square face crop).

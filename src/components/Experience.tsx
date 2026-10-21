@@ -1,4 +1,4 @@
-import { education, experience, formatMonth, yearsOfExperience } from '@/content/profile';
+import { education, experience, experienceTextCapitalized, formatMonth } from '@/content/profile';
 import { Section } from './Section';
 
 export function Experience() {
@@ -7,7 +7,7 @@ export function Experience() {
       id="experience"
       eyebrow="Experience"
       title="From associate to senior engineer."
-      note={`${yearsOfExperience()}+ years building production web applications for clients.`}
+      note={`${experienceTextCapitalized()} building production web applications for clients.`}
     >
       <div className="xp">
         <div className="xp__company">
