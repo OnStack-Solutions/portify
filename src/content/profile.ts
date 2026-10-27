@@ -44,6 +44,7 @@ export const experience = {
     { title: 'Senior Software Engineer', start: '2025-07', end: null },
     { title: 'Software Engineer', start: '2023-07', end: '2025-08' },
     { title: 'Associate Software Engineer', start: '2022-07', end: '2023-08' },
+    { title: 'Trainee Software Engineer', start: '2022-04', end: '2022-07' },
   ] satisfies Role[],
   highlights: [
     'Build and maintain client web applications across the frontend and backend, from new modules and third-party integrations to bug fixes and production support.',
