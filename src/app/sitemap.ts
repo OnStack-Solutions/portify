@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { projects } from '@/content/profile';
+import { visibleProjects } from '@/content/profile';
 import { getSiteUrl } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   return [
     { url, lastModified: now, changeFrequency: 'monthly', priority: 1 },
-    ...projects.map((p) => ({
+    ...visibleProjects.map((p) => ({
       url: `${url}/projects/${p.slug}`,
       lastModified: now,
       changeFrequency: 'yearly' as const,

@@ -16,7 +16,7 @@ const POINTS = [
   {
     title: 'Model choice per product',
     body: 'I have integrated the OpenAI and Anthropic APIs and self-hosted open-source models through Ollama, depending on what the product needs.',
-    project: { slug: 'ring-n-bring', name: 'Ring N Bring' },
+    project: { slug: 'grace-ai', name: 'Grace AI' },
   },
 ];
 
@@ -27,7 +27,7 @@ export function AiWork() {
       tone="ink"
       eyebrow="AI integration"
       title="Most of the engineering happens around the model."
-      note="I add LLM features to products that already have users and real data: a natural-language analytics product, an assistant real-estate agents use every day, and AI features on a hospitality platform. The work is giving the model the right context, checking its output and controlling what it can access."
+      note="I add LLM features to products that already have users and real data: a natural-language analytics product and an assistant real-estate agents use every day. The work is giving the model the right context, checking its output and controlling what it can access."
     >
       <ol className="principles" role="list">
         {POINTS.map((p, i) => (

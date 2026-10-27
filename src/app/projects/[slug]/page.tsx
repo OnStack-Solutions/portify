@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getProject, person, projects } from '@/content/profile';
+import { getProject, person, visibleProjects } from '@/content/profile';
 import { getSiteUrl, whatsappHref } from '@/lib/site';
 import { JsonLd } from '@/components/JsonLd';
 import { Diagram } from '@/components/Diagram';
@@ -13,7 +13,7 @@ type Params = { params: Promise<{ slug: string }> };
 
 export const dynamicParams = false;
 export function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }));
+  return visibleProjects.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
@@ -34,10 +34,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function ProjectPage({ params }: Params) {
   const { slug } = await params;
   const p = getProject(slug);
-  if (!p) notFound();
-  const i = projects.indexOf(p);
-  const prev = projects[(i - 1 + projects.length) % projects.length];
-  const next = projects[(i + 1) % projects.length];
+  if (!p || p.hidden) notFound();
+  const i = visibleProjects.indexOf(p);
+  const prev = visibleProjects[(i - 1 + visibleProjects.length) % visibleProjects.length];
+  const next = visibleProjects[(i + 1) % visibleProjects.length];
   const url = getSiteUrl();
   const show = showcases[p.slug];
 

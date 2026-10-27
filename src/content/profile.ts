@@ -78,12 +78,12 @@ export const services: Service[] = [
   {
     title: 'AI and LLM integration',
     body: 'Assistants, natural-language-to-SQL and retrieval features built on OpenAI, Anthropic or self-hosted models, with validation and access control for real data.',
-    evidence: ['askbase-ai', 'grace-ai', 'ring-n-bring'],
+    evidence: ['askbase-ai', 'grace-ai'],
   },
   {
     title: 'System integrations',
     body: 'Connecting products to the systems a business already runs on: hospitality POS and PMS systems such as Oracle OHIP, Oracle Gen1 and Gen2, Infrasys, Omega and Foodics, plus Xero, AWS S3, Algolia and analytics tools.',
-    evidence: ['ring-n-bring', 'apc-crm', 'better-homes'],
+    evidence: ['apc-crm', 'better-homes'],
   },
   {
     title: 'Revamps and maintenance',
@@ -115,6 +115,8 @@ export type Project = {
   role: string;
   solo?: boolean;
   featured?: boolean;
+  /** When true, omitted from the portfolio grid, sitemap and case-study routes. */
+  hidden?: boolean;
   ai?: boolean;
   url?: string;
   /** Optional real logo in /public/logos, e.g. '/logos/better-homes.svg'. */
@@ -263,6 +265,7 @@ export const projects: Project[] = [
     industry: 'Hospitality',
     role: 'Full Stack Developer',
     featured: true,
+    hidden: true,
     ai: true,
     url: 'https://ringnbring.com/',
     overview:
@@ -532,8 +535,9 @@ export const projects: Project[] = [
   },
 ];
 
-export const featuredProjects = projects.filter((p) => p.featured);
-export const otherProjects = projects.filter((p) => !p.featured);
+export const visibleProjects = projects.filter((p) => !p.hidden);
+export const featuredProjects = visibleProjects.filter((p) => p.featured);
+export const otherProjects = visibleProjects.filter((p) => !p.featured);
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
 
 /** Total professional experience as shown on the site, e.g. "nearly 5 years". */
