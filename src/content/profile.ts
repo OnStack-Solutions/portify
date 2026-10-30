@@ -21,13 +21,13 @@ export const person = {
   // Total professional experience, worded as Salman states it on his resume.
   experience: 'nearly 5 years',
   summary:
-    'Full Stack Developer with nearly 5 years of experience building production web applications with React, Next.js, TypeScript and Node.js (Express.js and NestJS). Specialized in AI integration, including natural-language-to-SQL, retrieval-augmented generation and AI assistants, and in integrations with hospitality POS and PMS systems and Xero accounting.',
+    'Senior Software Engineer and Full Stack Developer with nearly 5 years of experience building web applications end to end with React, Next.js, TypeScript, Node.js, Express.js and NestJS. Specializes in AI integration, including natural-language-to-SQL and retrieval augmented generation (RAG) using OpenAI, Anthropic and self-hosted LLMs. Built an embeddable AI assistant for real-estate agents and LLM features for a hospitality platform. Has delivered products across real estate, hospitality, CRM, recruitment and billing, some as the sole developer.',
   intro: [
-    "I'm a full stack developer with nearly 5 years of experience designing and shipping production web applications. I work across the whole stack: React and Next.js on the frontend, Node.js services built with Express.js and NestJS behind them, and MySQL, PostgreSQL and MongoDB underneath.",
-    'My focus is AI integration: natural-language-to-SQL with retrieval-augmented generation, AI assistants, and LLM features on OpenAI, Anthropic and self-hosted models. I also build integrations with hospitality POS and PMS systems, including Oracle OHIP, Oracle Gen1 and Gen2, Infrasys, Omega and Foodics, and with Xero accounting.',
+    "I'm a Senior Software Engineer and Full Stack Developer with nearly 5 years of experience building web applications end to end with React, Next.js, TypeScript, Node.js, Express.js and NestJS.",
+    'I specialize in AI integration, including natural-language-to-SQL and retrieval augmented generation (RAG) using OpenAI, Anthropic and self-hosted LLMs. I built an embeddable AI assistant for real-estate agents and LLM features for a hospitality platform. I have delivered products across real estate, hospitality, CRM, recruitment and billing, some as the sole developer.',
   ],
   summaryShort:
-    'I build web products end to end, with React and Next.js on the frontend and Node.js (Express.js and NestJS) on the backend, and I integrate LLMs into them.',
+    'I build web applications end to end with React, Next.js, TypeScript, Node.js, Express.js and NestJS, and I integrate LLMs into them.',
   industries: ['Real estate', 'Hospitality', 'CRM and accounting', 'Recruitment', 'Social networking', 'Billing'],
 } as const;
 
@@ -47,9 +47,12 @@ export const experience = {
     { title: 'Trainee Software Engineer', start: '2022-04', end: '2022-07' },
   ] satisfies Role[],
   highlights: [
-    'Build and maintain client web applications across the frontend and backend, from new modules and third-party integrations to bug fixes and production support.',
-    'Integrate LLM services into real-estate, hospitality and analytics products using OpenAI, Anthropic and self-hosted Ollama models.',
-    'Work in client-facing teams, and as the only developer on some products, taking features from design and implementation through to release.',
+    'Build and maintain full-stack client applications in React, Next.js, Node.js, Express.js and NestJS, covering new modules, third-party integrations, bug fixes and production support.',
+    'Own AI and LLM integration across products, connecting OpenAI, Anthropic and self-hosted Ollama models to real-estate, hospitality and data analytics platforms.',
+    'Deliver complete products as the sole developer, including the Grace AI assistant, taking features from planning and implementation through release.',
+    'Work with clients and product owners to understand requirements, break them into tasks and agree on delivery timelines.',
+    'Plan and track work in Jira, and take part in sprint planning, daily stand-ups and sprint reviews with client-facing project teams.',
+    "Review teammates' code, guide junior developers on clean, maintainable code, and work with QA and design teams to keep releases stable.",
   ],
 } as const;
 
@@ -153,10 +156,11 @@ export const projects: Project[] = [
       'Docker Compose deployment for API, UI and a demo MySQL database',
     ],
     contributions: [
-      'Developed the full frontend in Next.js 15 (Turbopack) with React 19 and TypeScript, using Tailwind CSS for styling, Recharts for charts, Framer Motion for animation, and Three.js / React Three Fiber for a 3D chart view.',
-      'Built the Python FastAPI backend and the natural-language-to-SQL pipeline using the askbase package, SQLAlchemy (async), sqlglot for SQL parsing and validation, and slowapi for rate limiting.',
-      'Integrated locally hosted open-source models through Ollama (qwen2.5-coder for SQL generation and qwen2.5 instruct for chat), with multi-tenant isolation, read-only query execution and caching.',
-      'Wired up connections to MySQL/MariaDB, PostgreSQL, MongoDB (Motor) and Google Cloud Firestore, and packaged the whole system with Docker Compose for easy deployment.',
+      'Delivered the full flow: a Next.js 15 and React 19 interface, a FastAPI backend and the AskBase natural-language-to-query engine in Python.',
+      'Ran local LLMs through Ollama, using Qwen 2.5 Coder to generate SQL and Qwen 2.5 Instruct for conversational answers.',
+      'Connected client databases through async SQLAlchemy (MySQL, MariaDB, PostgreSQL), Motor (MongoDB) and Google Cloud Firestore.',
+      'Made generated queries safe to run on client data by parsing and validating SQL with sqlglot, enforcing read-only access and rate-limiting the API.',
+      'Created results views with Recharts and a 3D chart view with Three.js and React Three Fiber; packaged the API, UI and a demo database with Docker Compose.',
     ],
     tech: [
       'Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS',
@@ -205,10 +209,8 @@ export const projects: Project[] = [
       'Deployed across multiple Better Homes websites',
     ],
     contributions: [
-      'Built the whole application as the only developer, working closely with the AI development team.',
-      'Integrated their models into the platform, from the backend to the user interface.',
-      'Made sure responses behaved the same in the standalone app and in every embedded version.',
-      'Led the rollout of the embed script across multiple Better Homes websites.',
+      "Built the full application as the sole developer, connecting the AI team's models from the backend to the user interface.",
+      "Ensured reliable AI responses in the standalone app and every embedded version, and led the script's rollout across multiple Better Homes websites with consistent performance.",
     ],
     tech: ['React', 'Tailwind CSS', 'Node.js', 'Express.js'],
     diagram: {
@@ -244,8 +246,8 @@ export const projects: Project[] = [
     ],
     contributions: [
       'Developed the leads, listings, deals, communities, properties and customer-calling modules.',
-      'Integrated AI services into the main products to help agents reach more customers.',
-      'Used Next.js server-side rendering and static generation so listing pages load quickly and can be indexed by search engines.',
+      'Added AI services to the core products to help agents reach more customers.',
+      'Applied Next.js server-side rendering (SSR), static site generation (SSG) and routing to make listing pages search-engine friendly and fast to load.',
       "Worked with the platform's Algolia search, Intercom, Amplitude and Google Maps integrations.",
     ],
     tech: ['Next.js', 'NestJS', 'React', 'Ant Design', 'Bootstrap', 'AWS', 'Anthropic API', 'FastAPI', 'Algolia', 'Intercom', 'Amplitude', 'Google Maps API', 'Swagger'],
@@ -265,7 +267,6 @@ export const projects: Project[] = [
     industry: 'Hospitality',
     role: 'Full Stack Developer',
     featured: true,
-    hidden: true,
     ai: true,
     url: 'https://ringnbring.com/',
     overview:
@@ -278,8 +279,7 @@ export const projects: Project[] = [
       'POS, PMS and payment integrations',
     ],
     contributions: [
-      'Built and maintained the NestJS services that integrate the platform with venue POS and PMS systems: Oracle OHIP, Oracle Gen1 and Gen2, Infrasys, Omega and Foodics.',
-      "Added new features to these integrations and kept orders, menus and billing in sync between the platform and each venue's systems.",
+      'Built and maintained the NestJS backend services that connect the platform to Oracle OHIP POS and PMS systems, adding new features and keeping data exchange with venue systems reliable.',
       'Integrated the OpenAI and Anthropic APIs to add AI features that support sales.',
     ],
     tech: ['NestJS', 'MySQL', 'MongoDB', 'Azure Service Bus', 'Firebase', 'Oracle OHIP', 'Oracle Gen1', 'Oracle Gen2', 'Infrasys', 'Omega', 'Foodics', 'OpenAI API', 'Anthropic API'],
@@ -315,9 +315,8 @@ export const projects: Project[] = [
       'APC CRM is a customer relationship management platform. I worked on it as a full-stack developer while it was being revamped onto React, Node.js and Express.js, and implemented its integration with Xero accounting.',
     features: ['Rebuilt React frontend', 'Node.js and Express.js backend services', 'MySQL database', 'Xero accounting integration'],
     contributions: [
-      'Worked on the revamp of the existing CRM, rebuilding the frontend in React and the backend in Node.js and Express.js.',
-      'Implemented the Xero accounting integration.',
-      'Worked on the MySQL data layer behind the new application.',
+      'Served as a full-stack developer on the revamp of the existing CRM, rebuilding the frontend in React and the backend in Node.js and Express.js.',
+      'Implemented the Xero accounting integration and worked on the MySQL data layer behind the revamped application.',
     ],
     tech: ['React', 'Node.js', 'Express.js', 'MySQL', 'Xero API'],
     diagram: {
@@ -345,9 +344,8 @@ export const projects: Project[] = [
       'A real-estate website for rental services, with one portal for clients and another for administrators. It covers sign-in and permissions, live notifications, sales transactions and payments.',
     features: ['Authentication and authorization', 'Live notifications', 'Sales transactions and payment methods', 'Client portal and admin portal'],
     contributions: [
-      'Worked full stack, mainly owning the frontend services in React and Redux.',
-      'Handled integrations for the platform, connecting the frontend services with the backend microservices.',
-      'Built features across the client and admin portals and fixed issues across the stack.',
+      'Worked full stack, primarily owning the frontend services in React and Redux and connecting them to the backend microservices.',
+      'Delivered features across the client and admin portals and fixed issues across the stack.',
     ],
     tech: ['React', 'Redux', 'JavaScript', 'Microservices', 'Java', '.NET Core', 'MySQL'],
     diagram: {
@@ -370,7 +368,7 @@ export const projects: Project[] = [
     role: 'Full Stack Developer',
     overview: 'A social networking website where users create profiles, share photos and videos, message each other and stay in touch.',
     features: ['Profiles, feeds and connections', 'Live chat between connections', 'Posts, uploads and comments'],
-    contributions: ['Built user listing sections and other frontend sections, tested the application and fixed UI bugs.'],
+    contributions: ['Built user listing sections and fixed frontend and backend bugs across the application.'],
     tech: ['Ruby on Rails', 'JavaScript', 'HTML', 'CSS'],
     aliases: ['osc', 'outdoor sports'],
   },
@@ -383,7 +381,7 @@ export const projects: Project[] = [
     role: 'Full Stack Developer',
     overview: 'A web application where company representatives post jobs and organize job fairs, and advertise the events to job seekers.',
     features: ['User and admin portals', 'Email and SMS campaigns', 'Reports and a payment gateway', 'PDF generation for job fairs'],
-    contributions: ['Tested the application and fixed frontend, PDF generation and SMS campaign issues.'],
+    contributions: ['Resolved PDF generation and Twilio SMS campaign issues, and fixed frontend bugs across the platform.'],
     tech: ['Ruby on Rails', 'PostgreSQL', 'Twilio', 'jQuery', 'JavaScript'],
     aliases: ['ncf', 'career fairs', 'job fair'],
   },
@@ -397,7 +395,7 @@ export const projects: Project[] = [
     url: 'http://opensourcebilling.org/',
     overview: 'An invoicing application for creating and sending invoices, taking payments and managing clients and companies, in multiple languages and currencies.',
     features: ['Recurring invoices and partial payments', 'PayPal and card payments', 'Billing for several companies under one account', 'Reports, and imports from QuickBooks and FreshBooks'],
-    contributions: ['Fixed UI and backend issues to stabilize the application and worked on the invoice PDF template.'],
+    contributions: ['Stabilized the application by fixing UI and backend issues, and worked on the invoice PDF templates.'],
     tech: ['Ruby on Rails', 'MySQL', 'HAML', 'AJAX', 'JavaScript'],
     aliases: ['osb', 'billing', 'invoicing'],
   },
@@ -419,10 +417,7 @@ export const projects: Project[] = [
       'Organisation charts',
     ],
     contributions: [
-      'Developed the complete frontend using React with TypeScript.',
-      'Built the timesheet, end-of-day reporting and attendance modules.',
-      'Integrated all modules with the backend API.',
-      'Implemented the work-from-home request feature.',
+      'Developed the complete frontend in React and TypeScript, including the dashboard, timesheets, end-of-day reports and attendance, and connected it to the backend APIs.',
     ],
     tech: ['React', 'TypeScript', 'Node.js', 'Express.js', 'MongoDB'],
     aliases: ['group captain', 'groupcaptain', 'team management', 'timesheet'],
@@ -446,12 +441,8 @@ export const projects: Project[] = [
       'Analytics per job broken down by platform',
     ],
     contributions: [
-      'Worked on the job roster section for interview scheduling.',
-      'Developed the employee details section in the Jobs module.',
-      'Added missing form validations that were causing bugs.',
-      'Integrated S3 bucket file uploads from the frontend.',
-      'Implemented Formik-based dynamic forms across multiple pages.',
-      'Fixed file upload issues on the S3 bucket from the frontend.',
+      'Built the interview scheduling roster, the job section and the employee details section.',
+      'Implemented dynamic forms with Formik, added missing validations and set up AWS S3 file uploads.',
     ],
     tech: ['React', 'Tailwind CSS', 'Material UI', 'Node.js', 'Express.js', 'MongoDB', 'AWS S3'],
     aliases: ['nexttalent', 'nextalent', 'recruitment', 'ats', 'hiring'],
@@ -473,9 +464,7 @@ export const projects: Project[] = [
       'Billing and reporting',
     ],
     contributions: [
-      'Developed frontend components of the web admin portal.',
-      'Built the meal scheduling roster on the frontend.',
-      'Integrated the frontend with the Node/Express.js API.',
+      'Developed frontend components, including the meal scheduling roster, and connected them to the backend APIs.',
     ],
     tech: ['React', 'React Native', 'JavaScript', 'Node.js', 'Express.js', 'PostgreSQL', 'Bootstrap'],
     aliases: ['meals app', 'mealsapp', 'meal ordering', 'canteen'],
@@ -499,13 +488,9 @@ export const projects: Project[] = [
       'API for the companion mobile application',
     ],
     contributions: [
-      'Added new features to existing modules of the Rails application.',
-      'Developed a view-only admin role for cross-department ticket visibility.',
-      'Built a manager preference to stop subordinate emails from the profile.',
-      'Implemented automated email campaigns on ticket resolution.',
-      'Developed the mobile API exposing the core features.',
-      'Optimised the application and improved the UI/UX.',
-      'Wrote Rake tasks to pull data from external APIs.',
+      'Served as the sole developer on the existing Ruby on Rails application, adding features to existing modules, optimizing the application and improving the UI.',
+      'Built an API for the mobile app, rake tasks that import data from other systems, and email notifications when tickets are resolved.',
+      "Added an admin role that can view all departments' tickets without acting on them, and an option for managers to stop emails from their team.",
     ],
     tech: ['Ruby on Rails', 'Next.js', 'Node.js', 'Express.js', 'MongoDB', 'MySQL', 'Bootstrap'],
     aliases: ['nextdesk', 'helpdesk', 'ticketing', 'support portal'],
@@ -526,9 +511,8 @@ export const projects: Project[] = [
       'Sign-up and log-in',
     ],
     contributions: [
-      'Worked as a full stack developer on the team, focused on the backend.',
-      'Built backend services in NestJS with MongoDB.',
-      'Integrated the Google Maps API.',
+      'Developed backend services in NestJS with MongoDB, handling core API functionality for the car rental platform.',
+      'Integrated the Google Maps API for location-based search across cities, airports, train stations and hotels.',
     ],
     tech: ['NestJS', 'Node.js', 'MongoDB', 'React Native', 'Google Maps API'],
     aliases: ['turo', 'turo clone', 'car rental', 'car sharing', 'car hire'],

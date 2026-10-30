@@ -19,9 +19,10 @@ export function Hero() {
             </h1>
 
             <p className="hero__lead">
-              I&apos;m a full stack developer with <strong>{experienceText()}</strong> of shipping production web apps
-              with React, Next.js and Node.js, and integrating LLMs into them: natural-language-to-SQL,
-              retrieval-augmented generation and AI assistants.
+              Senior Software Engineer and Full Stack Developer with <strong>{experienceText()}</strong> of
+              experience building web applications end to end with React, Next.js, TypeScript, Node.js,
+              Express.js and NestJS. Specializing in AI integration, including natural-language-to-SQL
+              and retrieval augmented generation (RAG) using OpenAI, Anthropic and self-hosted LLMs.
             </p>
 
             <div className="hero__actions">
