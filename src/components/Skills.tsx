@@ -13,7 +13,7 @@ const PURPOSE: Record<string, string> = {
 };
 
 // "Main" = skills Salman names in his own summary and experience text in profile.ts.
-const text = [person.summary, ...person.intro, ...experience.highlights].join(' ').toLowerCase();
+const text = [person.summary, ...person.intro, ...experience.roles.flatMap((r) => r.highlights)].join(' ').toLowerCase();
 const base = (s: string) => s.replace(/\s*\(.*\)$/, '').replace(/ API$/, '').toLowerCase();
 const isMain = (item: string) => {
   const b = base(item);

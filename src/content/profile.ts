@@ -31,7 +31,13 @@ export const person = {
   industries: ['Real estate', 'Hospitality', 'CRM and accounting', 'Recruitment', 'Social networking', 'Billing'],
 } as const;
 
-export type Role = { title: string; start: string; end: string | null };
+export type Role = {
+  title: string;
+  start: string;
+  end: string | null;
+  promotedFrom?: string;
+  highlights: string[];
+};
 
 export const experience = {
   company: 'Nextbridge Limited',
@@ -39,21 +45,58 @@ export const experience = {
   location: 'Lahore, Pakistan',
   start: '2022-04',
   end: null as string | null,
-  // Progression as shown on LinkedIn.
   roles: [
-    { title: 'Senior Software Engineer', start: '2025-07', end: null },
-    { title: 'Software Engineer', start: '2023-07', end: '2025-08' },
-    { title: 'Associate Software Engineer', start: '2022-07', end: '2023-08' },
-    { title: 'Trainee Software Engineer', start: '2022-04', end: '2022-07' },
+    {
+      title: 'Senior Software Engineer',
+      start: '2025-07',
+      end: null,
+      promotedFrom: 'Software Engineer',
+      highlights: [
+        'Build and maintain full-stack client applications in React, Next.js, Node.js, Express.js and NestJS, covering new modules, third-party integrations, bug fixes and production support.',
+        'Own AI and LLM integration across products, connecting OpenAI, Anthropic and self-hosted Ollama models to real-estate, hospitality and data analytics platforms.',
+        'Deliver complete products as the sole developer, including the Grace AI assistant, taking features from planning and implementation through release.',
+        'Work with clients and product owners to understand requirements, break them into tasks and agree on delivery timelines.',
+        'Plan and track work in Jira, and take part in sprint planning, daily stand-ups and sprint reviews with client-facing project teams.',
+        "Review teammates' code, guide junior developers on clean, maintainable code, and work with QA and design teams to keep releases stable.",
+      ],
+    },
+    {
+      title: 'Software Engineer',
+      start: '2023-07',
+      end: '2025-08',
+      promotedFrom: 'Associate Software Engineer',
+      highlights: [
+        'Delivered full-stack features in React, Redux, Node.js and Express.js for client platforms, including the APC CRM revamp and the Abu Dhabi Global Management rental platform.',
+        'Rebuilt the existing APC CRM on a modern stack, implemented its Xero accounting integration and worked on the MySQL data layer behind it.',
+        'Owned the frontend services for the Abu Dhabi Global Management client and admin portals and connected them to Java and .NET Core backend microservices, delivering features and fixing issues across the stack.',
+        'Took part in requirement discussions with clients, and estimated and planned features with the team.',
+        'Tracked bugs and client issues in Jira, resolved them across the stack, and worked with QA to test features before release.',
+      ],
+    },
+    {
+      title: 'Associate Software Engineer',
+      start: '2022-07',
+      end: '2023-08',
+      promotedFrom: 'Trainee Software Engineer',
+      highlights: [
+        'Worked full stack as the sole developer on the NextDesk Ruby on Rails help desk, adding features to existing modules, optimizing the application and improving the UI.',
+        'Built a REST API for the NextDesk mobile app, rake tasks that import data from other systems, email notifications for resolved tickets, a view-only admin role across departments and a manager option to stop team emails.',
+        'Delivered NexTalent recruitment features on React, Node.js, Express.js and MongoDB, including the interview scheduling roster, job and employee sections, dynamic Formik forms, validations and AWS S3 file uploads.',
+        'Built the Group Captain frontend in React and TypeScript (dashboard, timesheets, end-of-day reports, attendance) and components such as the meal scheduling roster for the Meals App (an employee meal-ordering app with React Native mobile apps and an admin portal), connecting both to backend APIs.',
+        'Joined sprint planning and daily stand-ups, followed team coding standards and worked through code review feedback.',
+      ],
+    },
+    {
+      title: 'Trainee Software Engineer',
+      start: '2022-04',
+      end: '2022-07',
+      highlights: [
+        'Worked across the full Ruby on Rails stack on client projects, including Outdoor Sports Connection, National Career Fairs and Open Source Billing.',
+        'Built user listing sections, fixed frontend and backend bugs, resolved PDF generation and Twilio SMS campaign issues, and worked on invoice PDF templates.',
+        'Used Git and Jira in the team\'s daily workflow and learned the team\'s standards for code review and delivery.',
+      ],
+    },
   ] satisfies Role[],
-  highlights: [
-    'Build and maintain full-stack client applications in React, Next.js, Node.js, Express.js and NestJS, covering new modules, third-party integrations, bug fixes and production support.',
-    'Own AI and LLM integration across products, connecting OpenAI, Anthropic and self-hosted Ollama models to real-estate, hospitality and data analytics platforms.',
-    'Deliver complete products as the sole developer, including the Grace AI assistant, taking features from planning and implementation through release.',
-    'Work with clients and product owners to understand requirements, break them into tasks and agree on delivery timelines.',
-    'Plan and track work in Jira, and take part in sprint planning, daily stand-ups and sprint reviews with client-facing project teams.',
-    "Review teammates' code, guide junior developers on clean, maintainable code, and work with QA and design teams to keep releases stable.",
-  ],
 } as const;
 
 export type SkillGroup = { name: string; items: string[] };

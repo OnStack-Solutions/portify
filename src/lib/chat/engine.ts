@@ -262,9 +262,13 @@ function aboutAnswer(): ChatReply {
 }
 
 function experienceAnswer(): ChatReply {
-  const roles = experience.roles.map((r) => `${r.title}, ${formatMonth(r.start)} to ${formatMonth(r.end)}`);
+  const roles = experience.roles.map((r) => {
+    const promo = r.promotedFrom ? ` *(promoted from ${r.promotedFrom})*` : '';
+    return `**${r.title}**${promo}, ${formatMonth(r.start)} to ${formatMonth(r.end)}`;
+  });
+  const currentHighlights = experience.roles[0].highlights;
   return reply(
-    `Salman has **${experienceText()}** of experience as a software engineer. He is currently a **${experience.roles[0].title}** at **${experience.company}** (${experience.location}), where his roles have been:\n${list(roles)}\n\nWhat he does there:\n${list([...experience.highlights])}`,
+    `Salman has **${experienceText()}** of experience as a software engineer. He is currently a **${experience.roles[0].title}** at **${experience.company}** (${experience.location}), where his roles have been:\n${list(roles)}\n\nWhat he does in his current role:\n${list([...currentHighlights])}`,
     'experience',
     { suggestions: ['Which projects did he work on?', 'What AI work has he done?', 'Has he built anything solo?'], links: [RESUME_LINK] },
   );
@@ -538,7 +542,7 @@ const tokenize = (s: string) => normalize(s).trim().split(' ').filter((w) => w.l
 const DOCS: Doc[] = (() => {
   const docs: { text: string; project?: Project }[] = [
     { text: person.summary },
-    ...experience.highlights.map((h) => ({ text: h })),
+    ...experience.roles.flatMap((r) => r.highlights.map((h) => ({ text: h }))),
     ...services.map((s) => ({ text: `${s.title}. ${s.body}` })),
     ...projects.flatMap((p) => [
       { text: `${p.name}: ${p.overview}`, project: p },

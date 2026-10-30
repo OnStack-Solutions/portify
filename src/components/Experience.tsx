@@ -6,7 +6,7 @@ export function Experience() {
     <Section
       id="experience"
       eyebrow="Experience"
-      title="From associate to senior engineer."
+      title="From trainee to senior engineer."
       note={`${experienceTextCapitalized()} building production web applications for clients.`}
     >
       <div className="xp">
@@ -17,21 +17,23 @@ export function Experience() {
         </div>
 
         <div>
-          <ol className="timeline" role="list" aria-label={`Roles at ${experience.company}`}>
-            {experience.roles.map((r, i) => (
-              <li key={r.title} className="tl-item" data-current={i === 0}>
+          {experience.roles.map((r, i) => (
+            <div key={r.title} className="xp__role" data-current={i === 0 || undefined}>
+              <div className="xp__role-header">
                 {i === 0 && <span className="tl-item__tag">Current role</span>}
-                <span className="tl-item__title">{r.title}</span>
-                <span className="tl-item__date">
+                <h4 className="xp__role-title">{r.title}</h4>
+                {r.promotedFrom && (
+                  <p className="xp__promoted">Promoted from {r.promotedFrom}</p>
+                )}
+                <span className="xp__role-date">
                   {formatMonth(r.start)} - {r.end ? formatMonth(r.end) : 'Present'}
                 </span>
-              </li>
-            ))}
-          </ol>
-
-          <ul className="xp__duties" role="list">
-            {experience.highlights.map((h) => <li key={h}><span>{h}</span></li>)}
-          </ul>
+              </div>
+              <ul className="xp__duties" role="list">
+                {r.highlights.map((h) => <li key={h}><span>{h}</span></li>)}
+              </ul>
+            </div>
+          ))}
 
           <div className="edu">
             <span className="edu__badge" aria-hidden>BSCS</span>
